@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 // Schema to create a user model
 const userSchema = new Schema(
     {
-        userName: {
+        username: {
             type: String,
             required: true,
             unique: true,
@@ -20,10 +20,10 @@ const userSchema = new Schema(
         },
         friends: {
 
-        }
+        },
     }
 );
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
