@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+
+const reaction = require('./Reaction')
 
 const thoughtSchema = new Schema (
     {
@@ -8,11 +10,19 @@ const thoughtSchema = new Schema (
             minLength: 1,
             maxLength: 280,
         },
-        createdAt: {
-            type: Date,
-            default: Date.now,
+          userId: {
+            type: Types.ObjectId,
+            ref: 'user'
+          },
+          reactions: [reaction]
+    },
+    {
+        toJSON: {
+          virtuals: true,
+          getters: true,
         },
-    }
+        id: false,
+     }
 );
 
 const Thought = model('thought', thoughtSchema);

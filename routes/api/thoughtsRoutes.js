@@ -6,6 +6,6 @@ const {
     getThoughts,
 } = require('../../controllers/thoughtController')
 
-router.route('/')
+router.route('/').get(getThoughts).post(createThought)
 
 module.exports = router;
