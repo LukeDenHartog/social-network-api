@@ -32,8 +32,8 @@ module.exports = {
     async updateUser(req, res) {
         try {
             const updatedUser = await User.findByIdAndUpdate({ _id: req.params.userId },
-                { $set: req.body }, { new: true });
-            res.status(200).json(updatedUser)
+            { $set: req.body }, { new: true });
+            res.status(200).json(updatedUser);
         } catch (err) {
             res.status(500).json(err);
         }

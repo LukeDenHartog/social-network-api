@@ -24,5 +24,14 @@ module.exports = {
         } catch (err) {
             res.status(500).json(err)
         }
-    },   
+    },
+    async updateThought(req, res){
+        try {
+        oneThought = await Thought.findOneAndUpdate( { _id: req.params.thoughtId }, 
+        { $set: req.body }, { new: true });
+        res.status(200).json(oneThought);
+        } catch(err) {
+            res.status(500).json(err)
+        }
+    }
 }
