@@ -1,15 +1,15 @@
 const { Thought, User, Reaction } = require('../models');
 
 module.exports = {
-    async createThought(res, req){
+    async createThought(req, res){
         try{
-            const thought = Thought.create(req.body)
+            const thought = await Thought.create(req.body)
             res.status(200).json(thought)
         } catch (err) {
-         
+            res.status(500).json(err)
         }
     },
-    async getOneThought(res, req) {
+    async getOneThought(req, res) {
         try {
             const oneThought = Thought.findById( { _id: req.params.userId } )
             res.status(200).json(oneThought)
@@ -17,13 +17,12 @@ module.exports = {
             res.status(500).json(err)
         }
     },
-    async getThoughts(res, req){
+    async getThoughts(req, res){
         try{
             const thoughts = Thought.find();
             res.status(200).json(thoughts)
         } catch (err) {
-            res.status(500).json(err)
+         
         }
-    },
-    
+    },   
 }
