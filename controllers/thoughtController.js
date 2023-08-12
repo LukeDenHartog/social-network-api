@@ -11,7 +11,7 @@ module.exports = {
     },
     async getOneThought(req, res) {
         try {
-            const oneThought = Thought.findById( { _id: req.params.userId } )
+            const oneThought = await Thought.findOne( { _id: req.params.thoughtId } )
             res.status(200).json(oneThought)
         } catch (err) {
             res.status(500).json(err)
@@ -19,10 +19,10 @@ module.exports = {
     },
     async getThoughts(req, res){
         try{
-            const thoughts = Thought.find();
+            const thoughts = await Thought.find();
             res.status(200).json(thoughts)
         } catch (err) {
-         
+            res.status(500).json(err)
         }
     },   
 }
