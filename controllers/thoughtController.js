@@ -4,7 +4,15 @@ module.exports = {
     async createThought(req, res){
         try{
             const thought = await Thought.create(req.body)
-            res.status(200).json(thought)
+
+            const userData = await User.findByIdAndUpdate({
+                _id: req.body.userId
+              }, {
+                $addToSet: { thoughts: thought._id }
+              }, {
+                new: true
+              });
+            res.status(200).json(userData)
         } catch (err) {
             res.status(500).json(err)
         }

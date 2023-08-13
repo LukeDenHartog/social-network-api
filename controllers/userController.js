@@ -1,7 +1,7 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
-    //Create a User
+
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
