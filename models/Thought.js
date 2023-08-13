@@ -18,6 +18,7 @@ const thoughtSchema = new Schema (
             type: Types.ObjectId,
             ref: 'user'
           },
+          reactions: [reaction]
     }, 
     {
         toJSON: {
@@ -25,6 +26,7 @@ const thoughtSchema = new Schema (
           getters: true,
         },
         id: false,
+        collection: 'thought'
      }
 );
 
