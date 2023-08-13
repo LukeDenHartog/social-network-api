@@ -52,8 +52,8 @@ module.exports = {
     },
     async createReaction(req, res) {
         try {
-            const reaction = await Thought.findByIdAndUpdate({ 
-                _id: req.params.thoughtId },
+            const reaction = await Thought.findByIdAndUpdate(
+                { _id: req.params.thoughtId },
                 {
                     $addToSet: { reactions: req.body }
                   }, {
@@ -62,7 +62,18 @@ module.exports = {
                 res.status(200).json(reaction)
         } catch (err) {
             res.status(500).json(err);
-        }
-        
+        }  
+    },
+    async deleteReaction(req, res) {
+        try {
+            const dbThoughtData = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId },
+                { $pull: { reactions: { reactionId: req.params.reactionId } } },
+                { new: true }
+              );
+              res.status(200).json(dbThoughtData)
+        } catch (err) {
+            res.status(500).json(err);
+        }  
     }
 }
