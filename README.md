@@ -12,9 +12,7 @@ This NoSQL social network API is a application where users can share their thoug
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contribution Guidelines](#contribution-guidelines)
-  - [Test Instructions](#test-instructions)
+  - [Usage/Test Instructions](#usagetest-instructions)
   - [License](#license)
   - [Questions](#questions)
 
@@ -22,17 +20,26 @@ This NoSQL social network API is a application where users can share their thoug
 
 In order to install this project you should have node.js version v16.20.1 installed on your device before attempting to run the application.
 
-## Usage
+## Usage/Test Instructions
 
-To use this project it is recommended that you use Insomnia, Swagger, or Postman to test the API.
+To use this project it is recommended that you use Insomnia, Swagger, or Postman to test the API. 
 
-## Contribution Guidelines
+    User Routes:
+    1. To create a new user: POST (http://localhost:3001/api/users)
+    2. Find all users: GET http://localhost:3001/api/users
+    3. To find one user, insert the user's ID after api/users/ : GET http://localhost:3001/api/users/:userId
+    4. In order to update one user, insert the user's ID after api/users/ : PUT http://localhost:3001/api/users/:userId and update the information needed.
+    5. To delete a user, insert the user's ID after api/users/ : DELETE http://localhost:3001/api/users/:userId and update the information needed.
+    Thought Routes:
+    1. To create a new thought: POST http://localhost:3001/api/thoughts
+    2. Find all thoughts: GET http://localhost:3001/api/thoughts/
+    3. In order to find a single thought,  replace the ":thoughtId" text at the end of the URL with the thought ID you'd like to find: GET http://localhost:3001/api/thoughts/:thoughtId
+    4. To update a single thought, replace the ":thoughtId" text at the end of the URL with the thought ID you'd like to update: GET http://localhost:3001/api/thoughts/:thoughtId
+    5. If you'd like to delete a single thought, replace the ":thoughtId" text at the end of the URL with the thought ID you'd like to delete: GET http://localhost:3001/api/thoughts/:thoughtId
+   
 
-N/a
 
-## Test Instructions
 
-In order to test the project please follow the Usage section.
 
 ## License
 
