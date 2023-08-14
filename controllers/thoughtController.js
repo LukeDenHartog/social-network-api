@@ -54,11 +54,8 @@ module.exports = {
         try {
             const reaction = await Thought.findByIdAndUpdate(
                 { _id: req.params.thoughtId },
-                {
-                    $addToSet: { reactions: req.body }
-                  }, {
-                    new: true
-                  });
+                { $addToSet: { reactions: req.body }},
+                { new: true });
                 res.status(200).json(reaction)
         } catch (err) {
             res.status(500).json(err);
