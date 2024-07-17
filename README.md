@@ -66,6 +66,6 @@ This application is covered under: Apache License 2.0
 
 ## Questions
 
-My GitHub username is: Afrozez <https://github.com/Afrozez/>
+My GitHub username is: LukeDenHartog <https://github.com/lukedenhartog/>
 
 If anyone has a question to ask they can reach me via email at <LukeADenHartog@gmail.com>
